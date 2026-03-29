@@ -12,15 +12,22 @@ object ChannelManager {
     fun initReport(vm: QSecVM, qua: String, version: String, androidOs: String = "12", brand: String = "Redmi", model: String = "23013RK75C",
                    qimei36: String = vm.global["qimei36"] as? String ?: "", guid: String = vm.global["guid"] as? String ?: "") {
         runCatching {
+            // 9.2.70+ initReport 是无参数的 native 方法
             vm.newInstance("com/tencent/mobileqq/channel/ChannelManager", unique = true)
-                .callJniMethod(vm.emulator, "initReport(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
-                    qua, version, androidOs, brand + model, qimei36, guid
-                )
+                .callJniMethod(vm.emulator, "initReport()V")
         }.onFailure {
-            vm.newInstance("com/tencent/mobileqq/channel/ChannelManager", unique = true)
-                .callJniMethod(vm.emulator, "initReport(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
-                    qua, version, androidOs, brand + model
-                )
+            // 旧版本兼容 - 尝试不同参数数量
+            runCatching {
+                vm.newInstance("com/tencent/mobileqq/channel/ChannelManager", unique = true)
+                    .callJniMethod(vm.emulator, "initReport(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+                        qua, version, androidOs, brand + model, qimei36, guid
+                    )
+            }.onFailure {
+                vm.newInstance("com/tencent/mobileqq/channel/ChannelManager", unique = true)
+                    .callJniMethod(vm.emulator, "initReport(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
+                        qua, version, androidOs, brand + model
+                    )
+            }
         }
     }
 

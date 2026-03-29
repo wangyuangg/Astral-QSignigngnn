@@ -73,6 +73,21 @@ class QSecJni(
             return
         }
 
+        // 9.2.70+ sendMessageInner
+        if (signature == "com/tencent/mobileqq/channel/ChannelProxy->sendMessageInner(Ljava/lang/String;[BJ)V") {
+            val cmd = vaList.getObjectArg<StringObject>(0).value
+            val data = vaList.getObjectArg<BytesObject>(1).value
+            val callbackId = vaList.getLongArg(2)
+            val hex = data.toHexString()
+
+            if (callbackId == -1L) return
+
+            println("uin = ${global["uin"]}, id = $callbackId, sendMessageInner(cmd = $cmd, data = $hex)")
+            (global["PACKET"] as ArrayList<SsoPacket>).add(SsoPacket(cmd, hex, callbackId))
+            (global["mutex"] as Mutex).also { if (it.isLocked) it.unlock() }
+            return
+        }
+
         if (signature == "com/tencent/mobileqq/qsec/qsecurity/QSec->updateO3DID(Ljava/lang/String;)V") {
             val o3did = vaList.getObjectArg<StringObject>(0).value
             global["o3did"] = o3did
@@ -174,7 +189,25 @@ class QSecJni(
                     "ASSIST-LIST-20231221","ASSIST-OPENED-20231221" -> "[]"
                     "ASSIST-ST-20231221" -> "1"
                     "SYSTEM_STARTTIME-20240104" -> (System.currentTimeMillis()-123456).toString()
-                    else -> error("Not support mmKVValue:$key")
+                    "o3_sign_duration_20251016" -> "0"
+                    "o3_sign_enable_20251016" -> "1"
+                    "o3_sign_sample_20251016" -> ""
+                    "v_c_d_t_t_202521291719" -> ""
+                    else -> "" // 默认返回空字符串，避免未知键导致崩溃
+                    // else -> error("Not support mmKVValue:$key")
+                }
+            )
+        }
+        // 9.2.70+ 新增的 mmQsecKVValue 方法
+        if (signature == "com/tencent/mobileqq/dt/app/Dtc->mmQsecKVValue(Ljava/lang/String;)Ljava/lang/String;") {
+            return StringObject(
+                vm, when (val key = vaList.getObjectArg<StringObject>(0).value) {
+                    "o3_sign_duration_20251016" -> "0"
+                    "o3_sign_enable_20251016" -> "1"
+                    "o3_switch_Xwid", "o3_xwid_switch" -> global["o3_switch_Xwid"] as? String ?: "1"
+                    "o3_switch_XXSignPerfTest" -> "0"
+                    else -> "" // 默认返回空字符串
+                    // else -> error("Not support mmQsecKVValue:$key")
                 }
             )
         }
@@ -231,7 +264,10 @@ class QSecJni(
                     "ro.product.locale" -> "zh-CN"
                     "ro.build.flavor" -> "full_miui_64-user"
                     "ro.config.ringtone" -> "Ring_Synth_04.ogg"
-                    else -> error("Not support prop:$key")
+                    "ro.boot.verifiedbootstate" -> "green"
+                    "ro.recovery_id" -> ""
+                    else -> "" // 默认返回空字符串
+                    // else -> error("Not support prop:$key")
                 }
             )
         }
@@ -292,6 +328,14 @@ class QSecJni(
         }
         if (signature == "com/tencent/mobileqq/dt/app/Dtc->getIME(Ljava/lang/String;)Ljava/lang/String;") {
             return StringObject(vm, "com.netease.nemu_vinput.nemu/com.android.inputmethodcommon.SoftKeyboard")
+        }
+        // 9.2.70+ 新增的 getLoginUins 方法
+        if (signature == "com/tencent/mobileqq/dt/app/Dtc->getLoginUins(Ljava/lang/String;)Ljava/lang/String;") {
+            return StringObject(vm, global["uin"] as? String ?: "0")
+        }
+        // 9.2.70+ 新增的 getBatteryCap 方法
+        if (signature == "com/tencent/mobileqq/dt/app/Dtc->getBatteryCap(Ljava/lang/String;)Ljava/lang/String;") {
+            return StringObject(vm, "100")
         }
 
         if (signature == "java/lang/Thread->currentThread()Ljava/lang/Thread;") {
@@ -360,6 +404,12 @@ class QSecJni(
             return StringObject(vm, "90721e0b3a587f77503b6abedd960c2e".uppercase())
         }
 
+        // 9.2.70+ 通用的 Dtc 方法默认处理器
+        if (signature.startsWith("com/tencent/mobileqq/dt/app/Dtc->") && signature.endsWith("Ljava/lang/String;")) {
+            // 对所有未处理的 Dtc 方法返回空字符串
+            return StringObject(vm, "")
+        }
+
         return super.callStaticObjectMethodV(vm, dvmClass, signature, vaList)
     }
 
@@ -371,7 +421,24 @@ class QSecJni(
                 else -> error("不支持该TIM版本")
             }
         }
+        // 9.2.70+ android/os/Process->myUid()I
+        if (signature == "android/os/Process->myUid()I") {
+            return 10084  // 模拟普通应用UID
+        }
         return super.callStaticIntMethodV(vm, dvmClass, signature, vaList)
+    }
+
+    override fun callStaticBooleanMethodV(vm: BaseVM?, dvmClass: DvmClass?, signature: String?, vaList: VaList?): Boolean {
+        // 9.2.70+ checkAppInstalled 方法
+        if (signature == "com/tencent/mobileqq/dt/app/Dtc->checkAppInstalled(Ljava/lang/String;)Z") {
+            val packageName = vaList?.getObjectArg<StringObject>(0)?.value ?: ""
+            // 检查是否安装了常用应用
+            return when (packageName) {
+                "com.tencent.mobileqq", "com.tencent.tim", "com.tencent.mm" -> true
+                else -> false
+            }
+        }
+        return super.callStaticBooleanMethodV(vm, dvmClass, signature, vaList)
     }
 
     override fun callStaticVoidMethodV(vm: BaseVM, dvmClass: DvmClass, signature: String, vaList: VaList) {

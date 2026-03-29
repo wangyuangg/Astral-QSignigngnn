@@ -1,0 +1,152 @@
+PS C:\Users\Administrator\Desktop\Astral-QSignigngnn> java -jar build\libs\unidbg-fetch-qsign-1.1.9-all.jar --basePath=txlib\9.2.70
+FEBond sum = 7680
+Load Package = Protocol(qua=V1_AND_SQ_9.2.70_13350_YYB_D, version=9.2.70, code=13350, packageName=com.tencent.mobileqq)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/C:/Users/Administrator/Desktop/Astral-QSignigngnn/build/libs/unidbg-fetch-qsign-1.1.9-all.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+QSign-Unidbg 白名单模式
+FEBound.transform(00000000000000000000000000000000111111111111111111111111111111112222222222222222222222222222222233333333333333333333333333333333444444444444444444444444444444445555555555555555555555555555555566666666666666666666666666666666777777777777777777777777777777778888888888888888888888888888888899999999999999999999999999999999aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccccccccddddddddddddddddddddddddddddddddeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeffffffffffffffffffffffffffffffff) => ea62ea73fb73fb730c840c840d951d95102a3b1a2a3b3c4c3b3c405d5c4c505edc04b590e81d72c7a5fa1e93eec67b61a6d8c4e5d4c0b3a4b3a6af298f0f2f72294f083616e6e5d21dbdb9a5a78a683d74ae6c5700855eb8ce4951e131edb4f068e09dbb4ca7c18d9f9563bb291e49e75fb3d0d275582f2946d7fdd27233d34c03fd8f645769d7e67412d276dbb93129c71c472e39d14afb687894081568a58b4dcb71cf9dbfa40af96b371ab8520ed8853619a1a2fe086e5ae026c0cadb9a04be97220c814c1930d2538a6f93a0f7139b55f6f8639a861f270ee83ef021e2baf181a34dbe229d51e1cfcbf764f7c6a632795e89cf0460958021754c46748ccf
+[FEKit_]error: device_token.h:697 xwid empty or expired !
+[FEKit_]info: device_token.h:622 s c n x
+[FEKit_]error: device_token_storage.h:170 read file error
+[FEKit_]info: device_token.h:627 xw L2ID from file:0
+[FEKit_]error: device_token.h:637 getXwIdFromFileCache empty
+[FEKit_]info: android_channel.h:120 [setChannelProxy] proxy: 0x2227d24c, globalProxyClass: 0xcd0c74b
+[FEKit_]info: device_token.h:647 xw L2ID real length:144
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /system/xbin/bstk/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /system_ext/bin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /product/bin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /odm/bin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /vendor/bin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /vendor/xbin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /apex/com.android.runtime/bin/su
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /apex/com.android.art/bin/su
+[FEKit_]info: qq_sign.h:131 s begin
+[FEKit_]error: device_token.h:697 xwid empty or expired !
+[FEKit_]error: device_token.h:267 frequency limit: retry:1, force: 0
+[FEKit_]error: device_token_storage.h:63 write file error
+[FEKit_]info: qq_sign.h:170 [GetSign] cmd:wtlogin.login
+3月 29, 2026 4:59:23 下午 moe.fuqiuluo.unidbg.env.FileResolver resolve
+警告: Couldn't find file: /sys/devices/system/cpu
+java.lang.UnsupportedOperationException: com/tencent/mobileqq/dt/app/Dtc->checkAppInstalled(Ljava/lang/String;)Z
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticBooleanMethodV(AbstractJni.java:191)
+        at com.github.unidbg.linux.android.dvm.AbstractJni.callStaticBooleanMethodV(AbstractJni.java:186)
+        at com.github.unidbg.linux.android.dvm.DvmMethod.callStaticBooleanMethodV(DvmMethod.java:184)
+        at com.github.unidbg.linux.android.dvm.DalvikVM64$115.handle(DalvikVM64.java:1910)
+        at com.github.unidbg.linux.ARM64SyscallHandler.hook(ARM64SyscallHandler.java:124)
+        at com.github.unidbg.arm.backend.Unicorn2Backend$11.hook(Unicorn2Backend.java:352)
+        at com.github.unidbg.arm.backend.unicorn.Unicorn$NewHook.onInterrupt(Unicorn.java:109)
+        at com.github.unidbg.arm.backend.unicorn.Unicorn.emu_start(Native Method)
+        at com.github.unidbg.arm.backend.unicorn.Unicorn.emu_start(Unicorn.java:312)
+        at com.github.unidbg.arm.backend.Unicorn2Backend.emu_start(Unicorn2Backend.java:389)
+        at com.github.unidbg.AbstractEmulator.emulate(AbstractEmulator.java:378)
+        at com.github.unidbg.thread.BaseTask.continueRun(BaseTask.java:104)
+        at com.github.unidbg.thread.ThreadTask.dispatch(ThreadTask.java:36)
+        at com.github.unidbg.thread.UniThreadDispatcher.run(UniThreadDispatcher.java:175)
+        at com.github.unidbg.thread.UniThreadDispatcher.runMainForResult(UniThreadDispatcher.java:99)
+        at com.github.unidbg.AbstractEmulator.runMainForResult(AbstractEmulator.java:341)
+        at com.github.unidbg.arm.AbstractARM64Emulator.eFunc(AbstractARM64Emulator.java:262)
+        at com.github.unidbg.Module.emulateFunction(Module.java:163)
+        at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethod(DvmObject.java:135)
+        at com.github.unidbg.linux.android.dvm.DvmObject.callJniMethodObject(DvmObject.java:93)
+        at com.tencent.mobileqq.sign.QQSecuritySign.getSign(QQSecuritySign.kt:54)
+        at com.tencent.mobileqq.sign.QQSecuritySign.getSign$default(QQSecuritySign.kt:52)
+        at moe.fuqiuluo.api.QsignKt.requestSign(qsign.kt:96)
+        at moe.fuqiuluo.api.QsignKt.access$requestSign(qsign.kt:1)
+        at moe.fuqiuluo.api.QsignKt$sign$2.invokeSuspend(qsign.kt:46)
+        at moe.fuqiuluo.api.QsignKt$sign$2.invoke(qsign.kt)
+        at moe.fuqiuluo.api.QsignKt$sign$2.invoke(qsign.kt)
+        at io.ktor.server.routing.Route$buildPipeline$1$1.invokeSuspend(Route.kt:116)
+        at io.ktor.server.routing.Route$buildPipeline$1$1.invoke(Route.kt)
+        at io.ktor.server.routing.Route$buildPipeline$1$1.invoke(Route.kt)
+        at io.ktor.util.pipeline.SuspendFunctionGun.loop(SuspendFunctionGun.kt:120)
+        at io.ktor.util.pipeline.SuspendFunctionGun.proceed(SuspendFunctionGun.kt:78)
+        at io.ktor.util.pipeline.SuspendFunctionGun.execute$ktor_utils(SuspendFunctionGun.kt:98)
+        at io.ktor.util.pipeline.Pipeline.execute(Pipeline.kt:77)
+        at io.ktor.server.routing.Routing$executeResult$$inlined$execute$1.invokeSuspend(Pipeline.kt:478)
+        at io.ktor.server.routing.Routing$executeResult$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.server.routing.Routing$executeResult$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.util.debug.ContextUtilsKt.initContextInDebugMode(ContextUtils.kt:17)
+        at io.ktor.server.routing.Routing.executeResult(Routing.kt:190)
+        at io.ktor.server.routing.Routing.interceptor(Routing.kt:64)
+        at io.ktor.server.routing.Routing$Plugin$install$1.invokeSuspend(Routing.kt:140)
+        at io.ktor.server.routing.Routing$Plugin$install$1.invoke(Routing.kt)
+        at io.ktor.server.routing.Routing$Plugin$install$1.invoke(Routing.kt)
+        at io.ktor.util.pipeline.SuspendFunctionGun.loop(SuspendFunctionGun.kt:120)
+        at io.ktor.util.pipeline.SuspendFunctionGun.proceed(SuspendFunctionGun.kt:78)
+        at io.ktor.server.engine.BaseApplicationEngineKt$installDefaultTransformationChecker$1.invokeSuspend(BaseApplicationEngine.kt:124)
+        at io.ktor.server.engine.BaseApplicationEngineKt$installDefaultTransformationChecker$1.invoke(BaseApplicationEngine.kt)
+        at io.ktor.server.engine.BaseApplicationEngineKt$installDefaultTransformationChecker$1.invoke(BaseApplicationEngine.kt)
+        at io.ktor.util.pipeline.SuspendFunctionGun.loop(SuspendFunctionGun.kt:120)
+        at io.ktor.util.pipeline.SuspendFunctionGun.proceed(SuspendFunctionGun.kt:78)
+        at io.ktor.server.application.hooks.CallFailed$install$1$1.invokeSuspend(CommonHooks.kt:45)
+        at io.ktor.server.application.hooks.CallFailed$install$1$1.invoke(CommonHooks.kt)
+        at io.ktor.server.application.hooks.CallFailed$install$1$1.invoke(CommonHooks.kt)
+        at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+        at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+        at io.ktor.server.application.hooks.CallFailed$install$1.invokeSuspend(CommonHooks.kt:44)
+        at io.ktor.server.application.hooks.CallFailed$install$1.invoke(CommonHooks.kt)
+        at io.ktor.server.application.hooks.CallFailed$install$1.invoke(CommonHooks.kt)
+        at io.ktor.util.pipeline.SuspendFunctionGun.loop(SuspendFunctionGun.kt:120)
+        at io.ktor.util.pipeline.SuspendFunctionGun.proceed(SuspendFunctionGun.kt:78)
+        at io.ktor.util.pipeline.SuspendFunctionGun.execute$ktor_utils(SuspendFunctionGun.kt:98)
+        at io.ktor.util.pipeline.Pipeline.execute(Pipeline.kt:77)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1$invokeSuspend$$inlined$execute$1.invokeSuspend(Pipeline.kt:478)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1$invokeSuspend$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1$invokeSuspend$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.util.debug.ContextUtilsKt.initContextInDebugMode(ContextUtils.kt:17)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1.invokeSuspend(DefaultEnginePipeline.kt:118)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1.invoke(DefaultEnginePipeline.kt)
+        at io.ktor.server.engine.DefaultEnginePipelineKt$defaultEnginePipeline$1.invoke(DefaultEnginePipeline.kt)
+        at io.ktor.util.pipeline.SuspendFunctionGun.loop(SuspendFunctionGun.kt:120)
+        at io.ktor.util.pipeline.SuspendFunctionGun.proceed(SuspendFunctionGun.kt:78)
+        at io.ktor.util.pipeline.SuspendFunctionGun.execute$ktor_utils(SuspendFunctionGun.kt:98)
+        at io.ktor.util.pipeline.Pipeline.execute(Pipeline.kt:77)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1$invokeSuspend$$inlined$execute$1.invokeSuspend(Pipeline.kt:478)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1$invokeSuspend$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1$invokeSuspend$$inlined$execute$1.invoke(Pipeline.kt)
+        at io.ktor.util.debug.ContextUtilsKt.initContextInDebugMode(ContextUtils.kt:17)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1.invokeSuspend(NettyApplicationCallHandler.kt:119)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1.invoke(NettyApplicationCallHandler.kt)
+        at io.ktor.server.netty.NettyApplicationCallHandler$handleRequest$1.invoke(NettyApplicationCallHandler.kt)
+        at kotlinx.coroutines.intrinsics.UndispatchedKt.startCoroutineUndispatched(Undispatched.kt:44)
+        at kotlinx.coroutines.CoroutineStart.invoke(CoroutineStart.kt:112)
+        at kotlinx.coroutines.AbstractCoroutine.start(AbstractCoroutine.kt:126)
+        at kotlinx.coroutines.BuildersKt__Builders_commonKt.launch(Builders.common.kt:56)
+        at kotlinx.coroutines.BuildersKt.launch(Unknown Source)
+        at io.ktor.server.netty.NettyApplicationCallHandler.handleRequest(NettyApplicationCallHandler.kt:37)
+        at io.ktor.server.netty.NettyApplicationCallHandler.channelRead(NettyApplicationCallHandler.kt:29)
+        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+        at io.netty.channel.AbstractChannelHandlerContext.access$600(AbstractChannelHandlerContext.java:61)
+        at io.netty.channel.AbstractChannelHandlerContext$7.run(AbstractChannelHandlerContext.java:425)
+        at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174)
+        at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:167)
+        at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+        at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:569)
+        at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+        at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+        at io.ktor.server.netty.EventLoopGroupProxy$Companion.create$lambda$1$lambda$0(NettyApplicationEngine.kt:296)
+        at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+        at java.base/java.lang.Thread.run(Thread.java:833)
+debugger break at: 0xfffe07b4 @ Runnable|MarshmallowThread tid=21990, fn=RX@0x75a17c70[libc.so]0x67c70, arg=RW@0x75efe440
+>>> x0=0xfffe1640(-125376) x1=0x2bc5d6fa x2=0xffffffff852ad3be x3=0x75f7e250 x4=0x23d42dfd x5=0x582c2be6 x6=0x7fbce71c x7=0xfe x8=0xfffe07b0 x9=0x0 x10=0xb919ae5e x11=0x9adbd35a x12=0x1 x13=0x50e692dd x14=0x1fc07039
+>>> x15=0x9be88ba9 x16=0xef492521 x17=0xf44d56a8 x18=0x75b458a0 x19=0x392ef659 x20=0x30a0d561 x21=0x625cb13 x22=0x0 x23=0x76e7aed3 x24=0x911a4309 x25=0x365d12ed x26=0x30a0d560 x27=0xf42e701b x28=0x392ef65a fp=0x75f7e280
+>>> q0=0xffffff80ffffffd00000000075f7e1d0(9.77844584E-315, NaN) q1=0x75f7e2000000000075f7e2e0(9.778447185E-315, 9.77844608E-315) q2=0x203a096e6f6973697665722055504322(2.1103214388676973E262, 1.9419163440817651E-153) q3=0x0(0.0) q4=0x0(0.0) q5=0x40100401401004014010040140100401(4.003911019303815, 4.003911019303815) q6=0x0(0.0) q7=0x80000000000000004000000000000000(2.0, -0.0) q8=0x0(0.0) q9=0x0(0.0) q10=0x0(0.0) q11=0x0(0.0) q12=0x0(0.0) q13=0x0(0.0) q14=0x0(0.0) q15=0x0(0.0)
+>>> q16=0x0(0.0) q17=0x0(0.0) q18=0x50710000000000004071(8.1506E-320, 1.01743E-319) q19=0x9090909090909090909090909090909(3.882098286554061E-265, 3.882098286554061E-265) q20=0x3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b(2.252526342575774E-23, 2.252526342575774E-23) q21=0xf0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f(3.815736827118017E-236, 3.815736827118017E-236) q22=0x6e6e6e6e6e6e6e6e6e6e6e6e6e6e6e6e(8.800114776174739E223, 8.800114776174739E223) q23=0x16161616161616161616161616161616(2.8177690084182086E-202, 2.8177690084182086E-202) q24=0x30303030303030303030303030303030(1.398043286095289E-76, 1.398043286095289E-76) q25=0x67676767676767676767676767676767(1.3034546188519292E190, 1.3034546188519292E190) q26=0x6976726553746e65746e497972657571(6.939094013358974E252, 1.0738724710054768E200) q27=0xadb2b6a197b0aaa1b0aa8dbdb6a1b1b5(-2.9353218828513166E-74, -1.469853526310113E-88) q28=0x1f445e55445e5f531f54595f42545e51(9.26334194209697E-158, 4.636081785605436E-158) q29=0x4e6567616b636170(4.616368976829863E69) q30=0x35383964643031363631643230303031(1.1899672478956066E-47, 2.5291232455428074E-52) q31=0x64656632336232656137663730636539(2.0560808955826308E160, 4.2341388747137814E175)
+LR=RX@0x750f2234[libfekit.so]0xf2234
+SP=0x75f7e120
+PC=unidbg@0xfffe07b4
+nzcv: N=0, Z=1, C=1, V=0, EL0, use SP_EL0
+    [Arm64Svc      0x0007b0] [412e00d4] 0xfffe07b0: "svc #0x172"
+=> *[Arm64Svc     *0x0007b4]*[c0035fd6]*0xfffe07b4:*"ret"

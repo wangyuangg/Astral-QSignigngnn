@@ -22,7 +22,7 @@ object FEKit {
         val context = vm.newInstance("android/content/Context", unique = true)
         Dtn.initContext(vm, context)
 
-        Dtn.initLog(vm, vm.newInstance("com/tencent/mobileqq/fe/IFEKitLog"))
+        Dtn.initLog(vm, context, vm.newInstance("com/tencent/mobileqq/fe/IFEKitLog"))
         Dtn.initUin(vm, uin)
 
         QSec.doSomething(vm, context)

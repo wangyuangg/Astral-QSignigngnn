@@ -15,8 +15,9 @@ group = "moe.fuqiuluo"
 version = "1.1.9"
 
 repositories {
+    maven("https://maven.aliyun.com/repository/public")
+    maven("https://maven.aliyun.com/repository/google")
     mavenCentral()
-    maven("https://kotlin.bintray.com/ktor")
 }
 
 dependencies {
